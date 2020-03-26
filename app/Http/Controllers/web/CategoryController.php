@@ -7,5 +7,9 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    //
+    public function report(){
+
+        return view('system.categories.report');
+
+    }
 }

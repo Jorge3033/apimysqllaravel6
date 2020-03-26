@@ -12,9 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.report');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+/*
+###############################################################
+#                      Routes Categories                      #
+###############################################################
+*/
+Route::get('/categories', 'web\CategoryController@report')->name('categories');
+ /*
+###############################################################
+#                  end Routes Categories                      #
+###############################################################
+*/
