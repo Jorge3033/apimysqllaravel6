@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 use App\Http\Controllers\ApiController;
-use App\Cart;
+
+use App\StoreService;
 use Illuminate\Http\Request;
 
-class CartController extends ApiController
+class StoreServiceController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class CartController extends ApiController
      */
     public function index()
     {
-        //
+        return $this->showAll(StoreService::all());
     }
 
     /**
@@ -41,10 +42,10 @@ class CartController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cart  $cart
+     * @param  \App\StoreService  $storeService
      * @return \Illuminate\Http\Response
      */
-    public function show(Cart $cart)
+    public function show(StoreService $storeService)
     {
         //
     }
@@ -52,10 +53,10 @@ class CartController extends ApiController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cart  $cart
+     * @param  \App\StoreService  $storeService
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cart $cart)
+    public function edit(StoreService $storeService)
     {
         //
     }
@@ -64,10 +65,10 @@ class CartController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cart  $cart
+     * @param  \App\StoreService  $storeService
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cart $cart)
+    public function update(Request $request, StoreService $storeService)
     {
         //
     }
@@ -75,10 +76,10 @@ class CartController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cart  $cart
+     * @param  \App\StoreService  $storeService
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy(StoreService $storeService)
     {
         //
     }

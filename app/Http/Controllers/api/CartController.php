@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 use App\Http\Controllers\ApiController;
-
-use App\StoreDetail;
+use App\Cart;
 use Illuminate\Http\Request;
 
-class StoreDetailController extends ApiController
+class CartController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class StoreDetailController extends ApiController
      */
     public function index()
     {
-        return $this->showAll(StoreDetail::all());
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class StoreDetailController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\StoreDetail  $storeDetail
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function show(StoreDetail $storeDetail)
+    public function show(Cart $cart)
     {
         //
     }
@@ -53,10 +52,10 @@ class StoreDetailController extends ApiController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\StoreDetail  $storeDetail
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function edit(StoreDetail $storeDetail)
+    public function edit(Cart $cart)
     {
         //
     }
@@ -65,10 +64,10 @@ class StoreDetailController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\StoreDetail  $storeDetail
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, StoreDetail $storeDetail)
+    public function update(Request $request, Cart $cart)
     {
         //
     }
@@ -76,10 +75,10 @@ class StoreDetailController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\StoreDetail  $storeDetail
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(StoreDetail $storeDetail)
+    public function destroy(Cart $cart)
     {
         //
     }

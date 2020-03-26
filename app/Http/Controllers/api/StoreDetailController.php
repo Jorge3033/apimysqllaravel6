@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 use App\Http\Controllers\ApiController;
-use App\Product;
-use App\ProductDetail;
+
+use App\StoreDetail;
 use Illuminate\Http\Request;
 
-class ProductDetailController extends ApiController
+class StoreDetailController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ProductDetailController extends ApiController
      */
     public function index()
     {
-        return $this->showAll(ProductDetail::all());
+        return $this->showAll(StoreDetail::all());
     }
 
     /**
@@ -42,10 +42,10 @@ class ProductDetailController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\ProductDetail  $productDetail
+     * @param  \App\StoreDetail  $storeDetail
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductDetail $productDetail)
+    public function show(StoreDetail $storeDetail)
     {
         //
     }
@@ -53,10 +53,10 @@ class ProductDetailController extends ApiController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ProductDetail  $productDetail
+     * @param  \App\StoreDetail  $storeDetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductDetail $productDetail)
+    public function edit(StoreDetail $storeDetail)
     {
         //
     }
@@ -65,10 +65,10 @@ class ProductDetailController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ProductDetail  $productDetail
+     * @param  \App\StoreDetail  $storeDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductDetail $productDetail)
+    public function update(Request $request, StoreDetail $storeDetail)
     {
         //
     }
@@ -76,10 +76,10 @@ class ProductDetailController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ProductDetail  $productDetail
+     * @param  \App\StoreDetail  $storeDetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductDetail $productDetail)
+    public function destroy(StoreDetail $storeDetail)
     {
         //
     }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 use App\Http\Controllers\ApiController;
 
-use App\StoreService;
+use App\StoreComment;
 use Illuminate\Http\Request;
 
-class StoreServiceController extends ApiController
+class StoreCommentController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class StoreServiceController extends ApiController
      */
     public function index()
     {
-        return $this->showAll(StoreService::all());
+        return $this->showAll(StoreComment::all());
     }
 
     /**
@@ -36,27 +36,37 @@ class StoreServiceController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'user' => 'required|numeric',
+            'comment' => 'required|alpha_num',
+            'stars' => 'required|numeric',
+            'store' => 'required|numeric'
+        ]);
+
+        $data= new StoreComment($request->all());
+        $data->save();
+        return $this->showOne($data);
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\StoreService  $storeService
+     * @param  \App\StoreComment  $storeComment
      * @return \Illuminate\Http\Response
      */
-    public function show(StoreService $storeService)
+    public function show(StoreComment $storeComment)
     {
-        //
+        return $this->showOne($storeComment);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\StoreService  $storeService
+     * @param  \App\StoreComment  $storeComment
      * @return \Illuminate\Http\Response
      */
-    public function edit(StoreService $storeService)
+    public function edit(StoreComment $storeComment)
     {
         //
     }
@@ -65,22 +75,23 @@ class StoreServiceController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\StoreService  $storeService
+     * @param  \App\StoreComment  $storeComment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, StoreService $storeService)
+    public function update(Request $request, StoreComment $storeComment)
     {
-        //
+        return $this->errorResponse('No puedes Modificar un comentario ya publicado',422);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\StoreService  $storeService
+     * @param  \App\StoreComment  $storeComment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(StoreService $storeService)
+    public function destroy(StoreComment $storeComment)
     {
-        //
+        return $this->errorResponse('No puedes eliminar un comentario ya publicado',422);
+
     }
 }
