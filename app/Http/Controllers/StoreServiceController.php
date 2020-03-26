@@ -15,7 +15,7 @@ class StoreServiceController extends ApiController
      */
     public function index()
     {
-        //
+        return $this->showAll(StoreService::all());
     }
 
     /**

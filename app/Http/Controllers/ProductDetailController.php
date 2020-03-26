@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\ApiController;
-
+use App\Product;
 use App\ProductDetail;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ class ProductDetailController extends ApiController
      */
     public function index()
     {
-        //
+        return $this->showAll(ProductDetail::all());
     }
 
     /**

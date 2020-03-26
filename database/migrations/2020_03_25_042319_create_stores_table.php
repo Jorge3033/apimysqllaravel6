@@ -34,7 +34,7 @@ class CreateStoresTable extends Migration
 
             $table->unsignedBigInteger('seller_id');
             $table->foreign('seller_id')->references('id')->on('sellers');
-
+            $table->timestamp('verified_at')->nullable();;
 
             $table->timestamps();
             $table->softDeletes();

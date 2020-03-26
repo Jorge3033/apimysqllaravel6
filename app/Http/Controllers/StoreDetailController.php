@@ -15,7 +15,7 @@ class StoreDetailController extends ApiController
      */
     public function index()
     {
-        //
+        return $this->showAll(StoreDetail::all());
     }
 
     /**

@@ -15,7 +15,7 @@ class ProductController extends ApiController
      */
     public function index()
     {
-        //
+        return $this->showAll(Product::all());
     }
 
     /**
@@ -36,7 +36,17 @@ class ProductController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>['regex:/^[A-Z,a-z]*$/'],
+            'price'=>['regex:/^[0-9,.]*$/'],
+            'quantity'=>['regex:/^[0-9]*$/'],
+            'marker'=>['regex:/^[A-Z,a-z]*$/'],
+            'category_id'=> 'required',
+            'avatars'=> 'mimes:png,jpg,jpeg',
+        ]);
+        $data= new Product($request->all());
+        $data->save();
+        return $this->showOne($data);
     }
 
     /**
@@ -47,7 +57,7 @@ class ProductController extends ApiController
      */
     public function show(Product $product)
     {
-        //
+        return $this->showOne($product);
     }
 
     /**
@@ -70,7 +80,39 @@ class ProductController extends ApiController
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $this->validate($request,[
+            'name'=>['regex:/^[A-Z,a-z]*$/'],
+            'price'=>['regex:/^[0-9,.]*$/'],
+            'quantity'=>['regex:/^[0-9]*$/'],
+            'marker'=>['regex:/^[A-Z,a-z]*$/'],
+            'category_id'=> 'required',
+            'avatars'=> 'mimes:png,jpg,jpeg',
+        ]);
+        if ($request->has('name')) {
+            $product->name=$request->name;
+        }
+        if ($request->has('category_id')) {
+            $product->category_id=$request->category_id;
+        }
+        if ($request->has('price')) {
+            $product->price=$request->price;
+        }
+        if ($request->has('marker')) {
+            $product->maker=$request->maker;
+        }
+        if ($request->has('quantity')) {
+            $product->quantity=$request->quantity;
+        }
+        if ($request->has('avatars')) {
+            $product->avatars=$request->avatars;
+        }
+        if (!$product->isDirty()) {
+            $mensagge="Especificar al menos un valor diferente para actualizar";
+            return $this->errorResponse($mensagge,422);
+          }
+        $product->save();
+        return $this->showOne($product);
+
     }
 
     /**
@@ -81,6 +123,7 @@ class ProductController extends ApiController
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return $this->showOne($product);
     }
 }

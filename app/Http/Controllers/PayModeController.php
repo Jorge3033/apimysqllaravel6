@@ -15,7 +15,7 @@ class PayModeController extends ApiController
      */
     public function index()
     {
-        //
+        return $this->showAll(PayMode::all());
     }
 
     /**
@@ -36,7 +36,13 @@ class PayModeController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>['regex:/^[A-Z,a-z]*$/'],
+            'description'=>['regex:/^[A-Z,a-z]*[A-Z,a-z,0-9,ñ, ]*$/']
+        ]);
+        $data= new PayMode($request->all());
+        $data->save();
+        return $this->showOne($data);;
     }
 
     /**
@@ -47,7 +53,7 @@ class PayModeController extends ApiController
      */
     public function show(PayMode $payMode)
     {
-        //
+        return $this->showOne($payMode);
     }
 
     /**
@@ -70,7 +76,18 @@ class PayModeController extends ApiController
      */
     public function update(Request $request, PayMode $payMode)
     {
-        //
+        if($request->has('name')){
+            $payMode->name=$request->name;
+        }
+        if($request->has('description')){
+            $payMode->description=$request->description;
+        }
+        if (!$payMode->isDirty()) {
+            $mensagge="Especificar al menos un valor diferentepara actualizar";
+            return $this->errorResponse($mensagge,422);
+          }
+        $payMode->save();
+        return $this->showOne($payMode);
     }
 
     /**
@@ -81,6 +98,7 @@ class PayModeController extends ApiController
      */
     public function destroy(PayMode $payMode)
     {
-        //
+        $payMode->delete();
+        return $this->showOne($payMode);
     }
 }

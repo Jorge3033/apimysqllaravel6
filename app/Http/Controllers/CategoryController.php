@@ -35,7 +35,15 @@ class CategoryController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>['regex:/^[A-Z,a-z]*$/'],
+            'description'=>['regex:/^[A-Z,a-z]*[A-Z,a-z,0-9,ñ, ]*$/']
+        ]);
+
+        $data= new Category($request->all());
+            $data->save();
+            return $this->showOne($data);;
+
     }
 
     /**
@@ -46,7 +54,7 @@ class CategoryController extends ApiController
      */
     public function show(Category $category)
     {
-        //
+        return $this->showOne($category);
     }
 
     /**
@@ -69,7 +77,22 @@ class CategoryController extends ApiController
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $this->validate($request,[
+            'name'=>['regex:/^[A-Z,a-z]*$/'],
+            'description'=>['regex:/^[A-Z,a-z]*[A-Z,a-z,0-9,ñ, ]*$/']
+        ]);
+        if($request->has('name')){
+            $category->name=$request->name;
+        }
+        if($request->has('description')){
+            $category->description=$request->description;
+        }
+        if (!$category->isDirty()) {
+            $mensagge="Especificar al menos un valor diferente para actualizar";
+            return $this->errorResponse($mensagge,422);
+          }
+        $category->save();
+        return $this->showOne($category);
     }
 
     /**
@@ -80,6 +103,7 @@ class CategoryController extends ApiController
      */
     public function destroy(Category $category)
     {
-        //
+        $mensagge='No puedes eliminar una categoria debido a que dependen de otros productos';
+        return $this->errorResponse($mensagge,422);
     }
 }

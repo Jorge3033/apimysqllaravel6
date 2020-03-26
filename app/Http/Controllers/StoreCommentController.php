@@ -15,7 +15,7 @@ class StoreCommentController extends ApiController
      */
     public function index()
     {
-        //
+        return $this->showAll(StoreComment::all());
     }
 
     /**
@@ -36,7 +36,17 @@ class StoreCommentController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'user' => 'required|numeric',
+            'comment' => 'required|alpha_num',
+            'stars' => 'required|numeric',
+            'store' => 'required|numeric'
+        ]);
+
+        $data= new StoreComment($request->all());
+        $data->save();
+        return $this->showOne($data);
+
     }
 
     /**
@@ -47,7 +57,7 @@ class StoreCommentController extends ApiController
      */
     public function show(StoreComment $storeComment)
     {
-        //
+        return $this->showOne($storeComment);
     }
 
     /**
@@ -70,7 +80,7 @@ class StoreCommentController extends ApiController
      */
     public function update(Request $request, StoreComment $storeComment)
     {
-        //
+        return $this->errorResponse('No puedes Modificar un comentario ya publicado',422);
     }
 
     /**
@@ -81,6 +91,7 @@ class StoreCommentController extends ApiController
      */
     public function destroy(StoreComment $storeComment)
     {
-        //
+        return $this->errorResponse('No puedes eliminar un comentario ya publicado',422);
+
     }
 }

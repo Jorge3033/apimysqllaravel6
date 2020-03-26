@@ -15,7 +15,7 @@ class SellerController extends ApiController
      */
     public function index()
     {
-        //
+        return $this->showAll(Seller::all());
     }
 
     /**
@@ -36,7 +36,7 @@ class SellerController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

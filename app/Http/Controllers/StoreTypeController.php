@@ -15,7 +15,8 @@ class StoreTypeController extends ApiController
      */
     public function index()
     {
-        //
+        $data=StoreType::all();
+        return $this->showAll($data);
     }
 
     /**
@@ -36,7 +37,13 @@ class StoreTypeController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>['regex:/^[A-Z,a-z]*$/'],
+            'description'=>['regex:/^[A-Z,a-z]*[A-Z,a-z,0-9,ñ, ]*$/']
+        ]);
+        $data= new StoreType($request->all());
+            $data->save();
+            return $this->showOne($data);;
     }
 
     /**
@@ -70,7 +77,17 @@ class StoreTypeController extends ApiController
      */
     public function update(Request $request, StoreType $storeType)
     {
-        //
+        if($request->has('name')){
+            $storeType->name=$request->name;
+        }
+        if($request->has('description')){
+            $storeType->description=$request->description;
+        }
+        if (!$storeType->isDirty()) {
+            return response()->json(['error'=>'Especificar al menos un valor diferentepara actualizar','code'=> 422],422);
+          }
+        $storeType->save();
+        return $this->showOne($storeType);
     }
 
     /**
@@ -81,6 +98,7 @@ class StoreTypeController extends ApiController
      */
     public function destroy(StoreType $storeType)
     {
-        //
+        $mensagge='No puedes eliminar un tipo de tienda debido a que dependen de un negocio';
+        return response()->json(['error'=>$mensagge,'code'=> 422],422);
     }
 }
