@@ -1,62 +1,31 @@
-'use strict'
+$(document).ready(function(){
+    let table=$('#reportTable');
 
-var colums=[
-  'id',
-  'categoria',
-  'descripcion'
-];
+    table.DataTable( {
+        responsive: true,
+        select: true,
+        dom: 'Bfrtip',
+        buttons:[
+            'copy', 'csv', 'excel', 'pdf', 'print','colvis'
+        ],
+        colReorder: true,
+    } );
 
-function createReport(data,table){
+    let dataTable = table.DataTable();
 
-  //agregamos los campos al thead
+    // Sacar los valores de los Items Selecionados
+    dataTable
+        .on( 'select', function ( e, dt, type, indexes ) {
 
-  let thead=table.find('thead');
+            $('#category').show();
+            let rowData = dataTable.rows(indexes).data().toArray();
+            let data=rowData[0];
 
-  colums.forEach((item) => {
-    thead.append('<th>'+ item +'</th>');
-  });
 
-  //Recorremos el array parallenar la tabla
-  let tbody=table.find('tbody');
-
-  data.forEach((element, i) => {
-    tbody.append('<tr id='+element.id+'>'+
-                    '<td>'+element.id+'</td>'+
-                    '<td>'+ element.name+'</td>'+
-                    '<td>'+ element.description+'</td>'+
-                 '</tr>'
-                );
-  });
-
-}
+        } )
+        .on('deselect', function ( e, dt, type, indexes ) {
 
 
 
-function cargando(){
-  var table=$('#reportTable');
-  $.ajax({
-    url: '/api/categories',
-    type: 'GET',
-    success: responce=>{
-                        createReport(responce.data,table)
-                      },
-    error: e=>{
-      console.log(e);
-    }
-  });
-
-  table.on('dblclick','tr',event=>{
-    //Obtenemosel id de los tr
-    let {id}=event.currentTarget;
-
-    console.log(id);
-
-  });
-
-}
-
-
-
-// Cuando cargue el sistema manda llamar a la funcion cargando
-
-$(document).ready(cargando());
+        });
+    });

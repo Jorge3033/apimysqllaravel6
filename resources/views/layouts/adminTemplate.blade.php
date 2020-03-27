@@ -30,10 +30,20 @@
 <script src="{{ asset('/public/js/bootbox/bootbox.locales.min.js') }}"></script>
 <!-- Development version -->
 <script src="{{ asset('https://unpkg.com/@popperjs/core@2/dist/umd/popper.js') }}"></script>
-
-<!-- Production version -->
 <script src="{{ asset('https://unpkg.com/@popperjs/core@2') }}"></script>
 
+<link rel="stylesheet" type="text/css" href="{{ asset('/public/DataTables/datatables.min.css') }}"/>
+<script src="{{ asset('/public/DataTables\jQuery-3.3.1/jQuery-3.3.1.js') }}"></script>
+<script src="{{ asset('/public/DataTables\jQuery-3.3.1/jQuery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('/public/DataTables/datatables.min.js') }}"></script>
+<script src="{{ asset('/public/DataTables/datatables.js') }}"></script>
+<script src="{{ asset('/public/DataTables\Buttons-1.6.1\js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('/public/DataTables\Buttons-1.6.1\js/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('/public/DataTables/JSZip-2.5.0/jszip.min.js') }}"></script>
+<script src="{{ asset('/public/DataTables/pdfmake-0.1.36/pdfmake.min.js') }}"></script>
+<script src="{{ asset('/public/DataTables/pdfmake-0.1.36/vfs_fonts.js') }}"></script>
+<script src="{{ asset('/public/DataTables/buttons-1.6.1/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('/public/DataTables/buttons-1.6.1/js/buttons.print.min.js') }}"></script>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

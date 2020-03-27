@@ -24,11 +24,7 @@
     <div class="card-body">
         <div class="tab-content">
             <div class="tab-pane active" id="tab-eg2-0" role="tabpanel">
-
-                <div class="table-responsive">
-                    @yield('table')
-                </div>
-
+                @yield('table')
             </div>
             <div class="tab-pane" id="tab-eg2-1" role="tabpanel">
                 <span id="span2">Selecciona un registro a modificar</span>
