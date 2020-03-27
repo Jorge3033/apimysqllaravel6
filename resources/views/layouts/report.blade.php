@@ -4,14 +4,16 @@
 @endsection
 @section('content')
 
-@yield('table')
+
+
+
 
 <div class="main-card mb-3 card">
     <div class="card-header">
         <i class="header-icon lnr-license icon-gradient bg-plum-plate"> </i>Acciones
         <div class="btn-actions-pane-right">
             <div class="nav">
-                <a data-toggle="tab" href="#tab-eg2-0" class="btn-pill btn-wide active btn btn-outline-alternate btn-sm">Vista Previa</a>
+                <a data-toggle="tab" href="#tab-eg2-0" class="btn-pill btn-wide active btn btn-outline-alternate btn-sm">Reporte</a>
                 <a data-toggle="tab" href="#tab-eg2-1" class="btn-pill btn-wide mr-1 ml-1  btn btn-outline-alternate btn-sm" id="actions">
                     Registrar/Modificar
                 </a>
@@ -23,7 +25,9 @@
         <div class="tab-content">
             <div class="tab-pane active" id="tab-eg2-0" role="tabpanel">
 
-                @yield('previusView')
+                <div class="table-responsive">
+                    @yield('table')
+                </div>
 
             </div>
             <div class="tab-pane" id="tab-eg2-1" role="tabpanel">

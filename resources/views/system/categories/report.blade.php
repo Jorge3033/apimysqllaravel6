@@ -4,11 +4,15 @@
 @endsection
 @section('table')
 
+<h2>Reporte Categorias</h2>
 
-@endsection
 
-@section('previusView')
-    <span>Vista previa</span>
+<table id="reportTable" class="table table-light table-hover table-striped">
+
+    <thead class="thead-dark"></thead>
+    <tbody></tbody>
+</table>
+
 @endsection
 
 @section('form')
@@ -21,6 +25,6 @@
 
 @section('script')
 
-
+<script src="{{ asset('/public/js/validations/tables/categories.js') }}"></script>
 
 @endsection
