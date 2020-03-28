@@ -37,11 +37,7 @@
             </div>
             <div class="tab-pane" id="tab-eg2-2" role="tabpanel">
                 <span id="span3">Selecciona un registro a Eliminar</span>
-
                 @yield('delete')
-
-                <button class="btn btn-danger" id="deleteRecordTableButton">Eliminar</button>
-
             </div>
         </div>
     </div>
@@ -49,7 +45,37 @@
         <a href="javascript:void(0);" class="btn-wide btn btn-success" hidden>Reload</a>
     </div>
 </div>
-
+<script>
+var languageSpanish={
+                    "sProcessing":     "Procesando...",
+                                "sLengthMenu":     "Mostrar _MENU_ registros",
+                                "sZeroRecords":    "No se encontraron resultados",
+                                "sEmptyTable":     "Ningún dato disponible en esta tabla =(",
+                                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                                "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                                "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                                "sInfoPostFix":    "",
+                                "sSearch":         "Buscar:",
+                                "sUrl":            "",
+                                "sInfoThousands":  ",",
+                                "sLoadingRecords": "Cargando...",
+                                "oPaginate": {
+                                    "sFirst":    "Primero",
+                                    "sLast":     "Último",
+                                    "sNext":     "Siguiente",
+                                    "sPrevious": "Anterior"
+                                },
+                                "oAria": {
+                                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                },
+                                "buttons": {
+                                    "copy": "Copiar",
+                                    "print": "Imprimir",
+                                    "colvis": "Visibilidad Columna"
+                                }
+                };
+</script>
 @yield('script')
 
 @endsection
