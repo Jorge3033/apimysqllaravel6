@@ -29,9 +29,10 @@
 <script src="{{ asset('/public/js/bootbox/bootbox.min.js') }}"></script>
 <script src="{{ asset('/public/js/bootbox/bootbox.locales.min.js') }}"></script>
 <!-- Development version -->
+<!-- -->
 <script src="{{ asset('https://unpkg.com/@popperjs/core@2/dist/umd/popper.js') }}"></script>
 <script src="{{ asset('https://unpkg.com/@popperjs/core@2') }}"></script>
-
+<!---->
 <link rel="stylesheet" type="text/css" href="{{ asset('/public/DataTables/datatables.min.css') }}"/>
 <script src="{{ asset('/public/DataTables\jQuery-3.3.1/jQuery-3.3.1.js') }}"></script>
 <script src="{{ asset('/public/DataTables\jQuery-3.3.1/jQuery-3.3.1.min.js') }}"></script>
@@ -47,7 +48,11 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+<!-- bootbox js -->
+<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.js') }}"></script>
+<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js') }}"></script>
+<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js.map') }}"></script>
+<!---->
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">

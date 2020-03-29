@@ -14,10 +14,10 @@
         <div class="btn-actions-pane-right">
             <div class="nav">
                 <a data-toggle="tab" href="#tab-eg2-0" class="btn-pill btn-wide active btn btn-outline-alternate btn-sm">Reporte</a>
+                <a data-toggle="tab" href="#tab-eg2-2" class="btn-pill btn-wide  btn btn-outline-alternate btn-sm">Informacion</a>
                 <a data-toggle="tab" href="#tab-eg2-1" class="btn-pill btn-wide mr-1 ml-1  btn btn-outline-alternate btn-sm" id="actions">
                     Registrar/Modificar
                 </a>
-                <a data-toggle="tab" href="#tab-eg2-2" class="btn-pill btn-wide  btn btn-outline-alternate btn-sm">Eliminar</a>
             </div>
         </div>
     </div>
@@ -27,7 +27,6 @@
                 @yield('table')
             </div>
             <div class="tab-pane" id="tab-eg2-1" role="tabpanel">
-                <span id="span2">Selecciona un registro a modificar</span>
                 <div class="container" id="edit">
 
                     @yield('form')
@@ -36,8 +35,7 @@
                 </div>
             </div>
             <div class="tab-pane" id="tab-eg2-2" role="tabpanel">
-                <span id="span3">Selecciona un registro a Eliminar</span>
-                @yield('delete')
+                @yield('attributeInfo')
             </div>
         </div>
     </div>
