@@ -11,6 +11,6 @@ class StoreServiceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\StoreService::class,20)->create();
     }
 }

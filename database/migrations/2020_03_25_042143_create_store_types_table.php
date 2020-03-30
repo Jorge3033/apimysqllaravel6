@@ -15,7 +15,7 @@ class CreateStoreTypesTable extends Migration
     {
         Schema::create('store_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
+            $table->string('name');
             $table->string('description');
             $table->timestamps();
             $table->softDeletes();

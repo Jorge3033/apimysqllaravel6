@@ -34,8 +34,10 @@ Route::get('/categories', 'web\CategoryController@report')->name('categories');
 #                      Routes Products                        #
 ###############################################################
 */
-Route::get('/products', 'web\ProductController@report')->name('products');
- /*
+Route::get('products', 'web\ProductController@report')->name('products');
+
+/*
 ###############################################################
 #                  end Routes Products                        #
 ###############################################################
+*/

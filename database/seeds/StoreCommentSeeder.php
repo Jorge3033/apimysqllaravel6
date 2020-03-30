@@ -11,6 +11,6 @@ class StoreCommentSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\StoreComment::class,20)->create();
     }
 }

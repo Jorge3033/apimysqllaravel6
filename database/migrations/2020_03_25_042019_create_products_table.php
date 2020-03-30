@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('price');
             $table->string('marker');
-            $table->string('quantity');
+            $table->string('stock');
             $table->string('status');
 
             $table->unsignedBigInteger('category_id');

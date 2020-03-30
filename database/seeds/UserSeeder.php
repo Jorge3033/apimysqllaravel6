@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PayModeSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class PayModeSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\PayMode::class,20)->create();
+        factory(App\User::class,20)->create();
     }
 }

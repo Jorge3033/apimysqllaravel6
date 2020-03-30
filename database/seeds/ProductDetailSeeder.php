@@ -11,6 +11,6 @@ class ProductDetailSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\ProductDetail::class,20)->create();
     }
 }
