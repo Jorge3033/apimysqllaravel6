@@ -8,6 +8,6 @@ use Faker\Generator as Faker;
 $factory->define(PayMode::class, function (Faker $faker) {
     return [
         'name' => $faker->name(),
-        'description' => $faker->text(100)
+        'description' => $faker->text(20)
     ];
 });

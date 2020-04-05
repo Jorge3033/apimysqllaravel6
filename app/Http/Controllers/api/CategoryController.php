@@ -42,7 +42,7 @@ class CategoryController extends ApiController
 
         $data= new Category($request->all());
             $data->save();
-            return $this->showOne($data);;
+            return $this->showOne($data);
 
     }
 

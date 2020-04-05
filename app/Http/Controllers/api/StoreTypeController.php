@@ -54,7 +54,7 @@ class StoreTypeController extends ApiController
      */
     public function show(StoreType $storeType)
     {
-        //
+        return $this->showOne($storeType);
     }
 
     /**

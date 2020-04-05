@@ -76,8 +76,7 @@ function rowDeSelected(){
   btnEdit.hide();
   btnDelete.hide();
 
-  btnEdit.off('click',function(event) {
-  });
+
 
 }
 /*##############################################

@@ -15,7 +15,8 @@ class StoreController extends ApiController
      */
     public function index()
     {
-        return $this->showAll(Store::all());
+        $stores= Store::with('seller')->get();
+        return $this->showAll($stores);
     }
 
     /**
@@ -37,7 +38,7 @@ class StoreController extends ApiController
     public function store(Request $request)
     {
         $this->validate($request,[
-            'avatars' => 'reqired|mimes:png,jpg,jpeg',
+            //'avatars' => 'reqired|mimes:png,jpg,jpeg',
             'name' => 'required|alpha',
             'location' => 'required|alpha',
             'state' => 'required|alpha',
@@ -92,7 +93,7 @@ class StoreController extends ApiController
     public function update(Request $request, Store $store)
     {
         $this->validate($request,[
-            'avatars' => 'reqired|mimes:png,jpg,jpeg',
+            //'avatars' => 'reqired|mimes:png,jpg,jpeg',
             'name' => 'required|alpha',
             'location' => 'required|alpha',
             'state' => 'required|alpha',
@@ -112,7 +113,7 @@ class StoreController extends ApiController
         ]);
 
 
-        if($store->has('avatars')){$store->avatars=$request->avatars;}
+        //if($store->has('avatars')){$store->avatars=$request->avatars;}
 
         if($store->has('name')){$store->name=$request->name;}
 

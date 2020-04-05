@@ -14,7 +14,7 @@
 
     <thead>
         <tr>
-            <th hidden>id</th>
+            <th>id</th>
             <th>Nombre</th>
             <th>Descripion</th>
         </tr>
@@ -23,7 +23,7 @@
   <tbody>
     @foreach ($data as $item)
     <tr>
-      <td hidden> {{ $item->id }}</td>
+      <td> {{ $item->id }}</td>
         <td> {{ $item->name }}</td>
         <td> {{ $item->description }}</td>
     </tr>
@@ -32,7 +32,7 @@
 
   <tfoot>
     <tr>
-        <th hidden>id</th>
+        <th>id</th>
         <th>Nombre</th>
         <th>Descripicion</th>
     </tr>
@@ -65,7 +65,7 @@
 @section('form')
     <div class="form" id="form">
         <span class="btn alert alert-info container" id="formInfo"> Alta Categoria</span>
-        <input type="text" name="id" value="" hidden id="id">
+        <input type="text" name="id" value="" id="id" hidden>
         <div class="form-group">
           <label for="name">Nombre</label>
           <input type="text" name="name" id="name" placeholder="Nombre" class="form-control">

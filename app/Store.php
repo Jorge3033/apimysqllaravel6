@@ -29,4 +29,8 @@ class Store extends Model
     protected $hidden = [
         'remember_token',
     ];
+    public function seller(){
+        //relacion Pertenece a
+        return $this->belongsTo(Seller::class,'seller_id','id');
+    }
 }

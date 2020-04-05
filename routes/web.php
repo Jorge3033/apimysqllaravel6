@@ -24,11 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 ###############################################################
 */
 Route::get('/categories', 'web\CategoryController@report')->name('categories');
- /*
-###############################################################
-#                  end Routes Categories                      #
-###############################################################
-*/
+
 /*
 ###############################################################
 #                      Routes Products                        #
@@ -38,6 +34,32 @@ Route::get('products', 'web\ProductController@report')->name('products');
 
 /*
 ###############################################################
-#                  end Routes Products                        #
+#                      Routes Pay Modes                       #
 ###############################################################
 */
+Route::get('/paymodes', 'web\PayModeController@report')->name('paymodes');
+/*
+###############################################################
+#                  Routes Store Services                      #
+###############################################################
+*/
+Route::get('/storeservices', 'web\StoreServiceController@report')->name('storeservices');
+/*
+###############################################################
+#                  Routes Store Services                      #
+###############################################################
+*/
+Route::get('/storetypes', 'web\StoreTypeController@report')->name('storetypes');
+/*
+###############################################################
+#                      Routes Sellers                         #
+###############################################################
+*/
+Route::get('/sellers', 'web\SellerController@report')->name('sellers');
+/*
+###############################################################
+#                        Routes Stores                        #
+###############################################################
+*/
+Route::get('/stores', 'web\StoreController@report')->name('stores');
+

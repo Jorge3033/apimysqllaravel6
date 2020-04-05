@@ -4,7 +4,7 @@
 @endsection
 @section('table')
 
-<h2>Reporte Dueños de los Negocios</h2>
+<h2>Reporte Tipo de tienda</h2>
 
 <span class="btn alert alert-warning container" id="alertInfo">
   Selecciona un registro ver informacion detallada del registro
@@ -16,11 +16,7 @@
         <tr>
             <th>id</th>
             <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Telefono</th>
-            <th>status</th>
-            <th>Perfil</th>
-            <th>Contacto</th>
+            <th>Descripion</th>
         </tr>
     </thead>
 
@@ -29,11 +25,7 @@
     <tr>
       <td> {{ $item->id }}</td>
         <td> {{ $item->name }}</td>
-        <td> {{ $item->last_name}} </td>
-        <td> {{ $item->phone}} </td>
-        <td> {{ $item->status}} </td>
-        <td> {{ $item->user->name }}</td>
-        <td> {{ $item->user->email }}</td>
+        <td> {{ $item->description }}</td>
     </tr>
     @endforeach
   </tbody>
@@ -42,11 +34,7 @@
     <tr>
         <th>id</th>
         <th>Nombre</th>
-        <th>Apellidos</th>
-        <th>Telefono</th>
-        <th>status</th>
-        <th>Perfil</th>
-        <th>Contacto</th>
+        <th>Descripicion</th>
     </tr>
   </tfoot>
 
@@ -61,11 +49,7 @@
       <thead>
         <th>id</th>
         <th>Nombre</th>
-        <th>Apellidos</th>
-        <th>Telefono</th>
-        <th>status</th>
-        <th>Perfil</th>
-        <th>Contacto</th>
+        <th>Descripion</th>
       </thead>
       <tbody>
         <tr>
@@ -80,8 +64,8 @@
 
 @section('form')
     <div class="form" id="form">
-        <span class="btn alert alert-info container" id="formInfo"> Modificar Propietario</span>
-        <input type="text" name="id" value="" id="id" hidden>
+        <span class="btn alert alert-info container" id="formInfo"> Alta Tipo de tienda</span>
+        <input type="text" name="id" value="" hidden id="id" hidden>
         <div class="form-group">
           <label for="name">Nombre</label>
           <input type="text" name="name" id="name" placeholder="Nombre" class="form-control">
@@ -89,19 +73,12 @@
         </div>
 
         <div class="form-group">
-          <label for="name">Apellidos</label>
-          <input type="text" name="last_name" id="last_name" placeholder="Apellidos" class="form-control">
-          <p id="last_nameHelp" class="form-text text-muted alert alert-danger">Mensage de error</p>
-        </div>
-        <div class="form-group">
-          <label for="name">Telefono</label>
-          <input type="text" name="phone" id="phone" placeholder="Telefono" class="form-control">
-          <p id="phoneHelp" class="form-text text-muted alert alert-danger">Mensage de error</p>
+          <label for="name">Descripcion</label>
+          <input type="text" name="description" id="description" placeholder="Descripcion" class="form-control">
+          <p id="descriptionHelp" class="form-text text-muted alert alert-danger">Mensage de error</p>
         </div>
         <button type="button" id="btnSaveEdit" class="btn btn-warning">Modificar</button>
-        <!--
         <button type="button" id="btnSave" class="btn btn-success">Crear</button>
-        -->
         <button type="button" id="btnClear" class="btn btn-danger">Limpiar</button>
 
     </div>
@@ -112,6 +89,6 @@
 @section('script')
 
 <script src="{{ asset('/public/js/validations/createFiltersDataTables.js') }}"></script>
-<script src="{{ asset('/public/js/validations/tables/sellers.js') }}"></script>
+<script src="{{ asset('/public/js/validations/tables/storeTypes.js') }}"></script>
 
 @endsection

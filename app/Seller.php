@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\User;
 class Seller extends Model
 {
     protected $fillable = [
@@ -18,4 +18,10 @@ class Seller extends Model
     protected $hidden = [
         'remember_token',
     ];
+
+    public function user(){
+        //relacion Pertenece a
+        return $this->belongsTo(User::class,'user_id','id');
+    }
+
 }

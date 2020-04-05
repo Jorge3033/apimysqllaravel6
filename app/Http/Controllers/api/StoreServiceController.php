@@ -36,7 +36,14 @@ class StoreServiceController extends ApiController
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>['regex:/^[A-Z,a-z]*$/'],
+            'description'=>['regex:/^[A-Z,a-z]*[A-Z,a-z,0-9,ñ, ]*$/']
+        ]);
+
+        $data= new StoreService($request->all());
+            $data->save();
+            return $this->showOne($data);;
     }
 
     /**
@@ -47,7 +54,8 @@ class StoreServiceController extends ApiController
      */
     public function show(StoreService $storeService)
     {
-        //
+        return $this->showOne($storeService);
+
     }
 
     /**
@@ -70,7 +78,22 @@ class StoreServiceController extends ApiController
      */
     public function update(Request $request, StoreService $storeService)
     {
-        //
+        $this->validate($request,[
+            'name'=>['regex:/^[A-Z,a-z]*$/'],
+            'description'=>['regex:/^[A-Z,a-z]*[A-Z,a-z,0-9,ñ, ]*$/']
+        ]);
+        if($request->has('name')){
+            $storeService->name=$request->name;
+        }
+        if($request->has('description')){
+            $storeService->description=$request->description;
+        }
+        if (!$storeService->isDirty()) {
+            $mensagge="Especificar al menos un valor diferente para actualizar";
+            return $this->errorResponse($mensagge,422);
+          }
+        $storeService->save();
+        return $this->showOne($storeService);
     }
 
     /**
@@ -81,6 +104,7 @@ class StoreServiceController extends ApiController
      */
     public function destroy(StoreService $storeService)
     {
-        //
+        $storeService->delete();
+        return $this->showOne($storeService);
     }
 }

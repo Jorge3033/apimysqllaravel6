@@ -15,7 +15,9 @@ class ProductController extends ApiController
      */
     public function index()
     {
-        return $this->showAll(Product::all());
+        $products=Product::with('category')->get();
+        return $this->showAll($products );
+
     }
 
     /**
@@ -37,14 +39,16 @@ class ProductController extends ApiController
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=>['regex:/^[A-Z,a-z]*$/'],
-            'price'=>['regex:/^[0-9,.]*$/'],
-            'quantity'=>['regex:/^[0-9]*$/'],
-            'marker'=>['regex:/^[A-Z,a-z]*$/'],
+            'name'=>'required',
+            'price'=>'required|numeric',
+            'stock'=>'required',
+            'marker'=>'required',
             'category_id'=> 'required',
-            'avatars'=> 'mimes:png,jpg,jpeg',
+            //'avatars'=> 'required|mimes:png,jpg,jpeg',
         ]);
+
         $data= new Product($request->all());
+        $data->status='active';
         $data->save();
         return $this->showOne($data);
     }
@@ -57,6 +61,7 @@ class ProductController extends ApiController
      */
     public function show(Product $product)
     {
+        $product->category;
         return $this->showOne($product);
     }
 
@@ -81,12 +86,12 @@ class ProductController extends ApiController
     public function update(Request $request, Product $product)
     {
         $this->validate($request,[
-            'name'=>['regex:/^[A-Z,a-z]*$/'],
-            'price'=>['regex:/^[0-9,.]*$/'],
-            'quantity'=>['regex:/^[0-9]*$/'],
-            'marker'=>['regex:/^[A-Z,a-z]*$/'],
+            'name'=>'required',
+            'price'=>'required|numeric',
+            'stock'=>'required',
+            'marker'=>'required',
             'category_id'=> 'required',
-            'avatars'=> 'mimes:png,jpg,jpeg',
+            //'avatars'=> 'required|mimes:png,jpg,jpeg',
         ]);
         if ($request->has('name')) {
             $product->name=$request->name;
@@ -98,7 +103,7 @@ class ProductController extends ApiController
             $product->price=$request->price;
         }
         if ($request->has('marker')) {
-            $product->maker=$request->maker;
+            $product->marker=$request->marker;
         }
         if ($request->has('quantity')) {
             $product->quantity=$request->quantity;
@@ -106,6 +111,10 @@ class ProductController extends ApiController
         if ($request->has('avatars')) {
             $product->avatars=$request->avatars;
         }
+        if ($request->has('status')) {
+            $product->status=$request->status;
+        }
+
         if (!$product->isDirty()) {
             $mensagge="Especificar al menos un valor diferente para actualizar";
             return $this->errorResponse($mensagge,422);
