@@ -4,7 +4,7 @@
 @endsection
 @section('table')
 
-<h2>Reporte Categorias</h2>
+<h2>Reporte Tiendas</h2>
 
 <span class="btn alert alert-warning container" id="alertInfo">
   Selecciona un registro ver informacion detallada del registro
