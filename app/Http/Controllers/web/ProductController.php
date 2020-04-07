@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('verified');
+        $this->middleware('seller');
+    }
     public function report(){
 
         $products=Product::with('category')->get();

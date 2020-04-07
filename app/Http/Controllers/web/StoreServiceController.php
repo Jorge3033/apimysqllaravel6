@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class StoreServiceController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('verified');
+        $this->middleware('seller');
+    }
     public function report(){
 
       $data=StoreService::all();

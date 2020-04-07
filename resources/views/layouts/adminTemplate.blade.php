@@ -127,8 +127,18 @@
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                             <button type="button" tabindex="0" class="dropdown-item">User Account</button>
                                             <button type="button" tabindex="0" class="dropdown-item">Settings</button>
-                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
-                                            <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                            <h6 tabindex="-1" class="dropdown-header">Acciones</h6>
+
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
                                         </div>
@@ -136,10 +146,10 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Alina Mclourd
+                                        {{ Auth::user()->name }}
                                     </div>
                                     <div class="widget-subheading">
-                                        VP People Manager
+                                        {{ Auth::user()->email }}
                                     </div>
                                 </div>
                                 <div class="widget-content-right header-user-info ml-3">
@@ -198,32 +208,44 @@
                                 <li>
                                     <a href="#">
                                         <i class="metismenu-icon pe-7s-diamond"></i>
-                                        Negocios
+                                        Adminstracion
                                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
                                     <ul>
                                         <li>
-                                            <a href="">
+                                            <a href="/categories">
                                                 <i class="metismenu-icon"></i>
-                                                Tiendas
+                                                Categorias
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a href="/products">
                                                 <i class="metismenu-icon">
-                                                </i>Usuarios
+                                                </i>productos
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a href="/sellers">
                                                 <i class="metismenu-icon">
-                                                </i>Admins
+                                                </i>Vendedores
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a href="/storetypes">
                                                 <i class="metismenu-icon">
-                                                </i>Tareas
+                                                </i>Tipos de tienda
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/stores">
+                                                <i class="metismenu-icon">
+                                                </i>Tirndas
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/paymodes">
+                                                <i class="metismenu-icon">
+                                                </i>metodos de pago
                                             </a>
                                         </li>
                                     </ul>

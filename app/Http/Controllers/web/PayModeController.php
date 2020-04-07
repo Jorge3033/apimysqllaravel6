@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class PayModeController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('verified');
+        $this->middleware('admin');
+    }
     function report(){
 
       $data=PayMode::all();
